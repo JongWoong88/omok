@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.omok.mapper.PlayerMapper">
+	
+	<select id="select" parameterType="project.omok.controller.PlayerDTO" resultType="project.omok.controller.PlayerDTO">
+		SELECT * FROM player where id = #{id}
+	</select>
+	
+	<!-- 회원등록 -->
+	<insert id="insert">
+		INSERT INTO player (id) VALUES (#{id})
+	</insert>
+	
+	<!-- 회원삭제 -->
+	<delete id="delete">
+		DELETE FROM player WHERE id = #{id}
+	</delete>
+	
+	<!-- 승리시 -->
+	<update id="updateVic" parameterType="project.omok.controller.PlayerDTO">
+		UPDATE player SET 
+		victory = #{victory}
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 패배시 -->
+	<update id="updateDef" parameterType="project.omok.controller.PlayerDTO">
+		UPDATE player SET 
+		defeat = #{defeat}
+		WHERE id = #{id}
+	</update>
+</mapper>
+
+
+
+
+
+
+
